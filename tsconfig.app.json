@@ -15,6 +15,14 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@utils/*": ["src/utils/*"],
+      "@store/*": ["src/store/*"],
+      "@game/*": ["src/components/game/*"],
+      "@scenes/*": ["src/components/game/scenes/*"]
+    },
 
     /* Linting */
     "strict": true,

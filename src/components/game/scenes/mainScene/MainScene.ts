@@ -1,14 +1,13 @@
-import Phaser from "phaser";
-import { DESIGN_WIDTH } from "../../../../utils/constants.ts";
-import { setupWorldAndCamera } from "./components/setupCamera.ts";
-import createChicken from "./components/createChicken.ts";
-import setupInput from "./components/setupInput.ts";
-import createBackground from "./components/createBackground.ts";
-import createBoards from "./components/createBoards.ts";
-import createPlayer from "./components/createPlayer.ts";
+import Phaser from 'phaser';
+import { DESIGN_WIDTH } from '@utils/constants.ts';
+import createBoards from '@scenes/mainScene/components/createBoards.ts';
+import { setupWorldAndCamera } from '@scenes/mainScene/components/setupCamera.ts';
+import createBackground from '@scenes/mainScene/components/createBackground.ts';
+import createPlayer from '@scenes/mainScene/components/createPlayer.ts';
+import createChicken from '@scenes/mainScene/components/createChicken.ts';
+import setupInput from '@scenes/mainScene/components/setupInput.ts';
 
 export class MainScene extends Phaser.Scene {
-
   private player!: Phaser.Physics.Arcade.Sprite;
   private chicken!: Phaser.GameObjects.Image;
   private blocks!: Phaser.Physics.Arcade.StaticGroup;
@@ -17,13 +16,13 @@ export class MainScene extends Phaser.Scene {
 
   constructor() {
     super({
-      key: "MainScene",
+      key: 'MainScene',
       physics: {
         arcade: {
           gravity: { y: 300, x: 0 },
-          debug: false
-        }
-      }
+          debug: false,
+        },
+      },
     });
   }
 
