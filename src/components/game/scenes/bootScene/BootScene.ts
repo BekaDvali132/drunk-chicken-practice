@@ -1,5 +1,5 @@
-import { gameEvents } from "../../../utils/gameEvents.ts";
-import { GameEventsEnum } from "../../../utils/enums/gameEvents.enum.ts";
+import { gameEvents } from "../../../../utils/gameEvents.ts";
+import { GameEventsEnum } from "../../../../utils/enums/gameEvents.enum.ts";
 
 export class BootScene extends Phaser.Scene {
   private progressBox?: Phaser.GameObjects.Graphics;
@@ -54,12 +54,10 @@ export class BootScene extends Phaser.Scene {
       this.percentText?.destroy();
     });
 
-    // -------------------------------------------------------
-    // Load your game assets here, e.g.:
-    // this.load.image('logo', '/assets/logo.png');
-    // this.load.spritesheet('player', '/assets/player.png', { frameWidth: 32, frameHeight: 48 });
-    // this.load.audio('bgm', '/assets/bgm.mp3');
-    // -------------------------------------------------------
+    this.load.image('worldBackground', '/images/worldBackground.webp');
+    this.load.image('jumpingBoard', '/images/jumpingBoard.webp');
+    this.load.image('chicken', '/images/chicken.webp');
+    this.load.image('rooster', '/images/rooster.webp');
   }
 
   create() {
