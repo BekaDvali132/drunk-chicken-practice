@@ -15,6 +15,10 @@ export default function createBarrels(scene: Phaser.Scene): Phaser.Physics.Arcad
     const barrel = scene.add.image(x, BARREL_Y_POS, 'barrel');
     barrel.setDisplaySize(BARREL_WIDTH, BARRELS_HEIGHT);
     scene.physics.add.existing(barrel, true);
+    const body = barrel.body as Phaser.Physics.Arcade.StaticBody;
+    body.setSize(BARREL_WIDTH, BARRELS_HEIGHT - 40, false);
+    body.setOffset(0, 40);
+    body.reset(x, BARREL_Y_POS);
     barrels.add(barrel);
   }
 

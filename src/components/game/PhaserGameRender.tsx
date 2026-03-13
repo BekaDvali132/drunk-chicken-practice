@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
 interface Props {
   gameFactory: (config: { parent: string }) => Phaser.Game;
@@ -9,7 +9,7 @@ function PhaserGameRender({ gameFactory }: Props) {
 
   useEffect(() => {
     const game = gameFactory({
-      parent: "phaser-container",
+      parent: 'phaser-container',
     });
 
     gameRef.current = game;
@@ -20,9 +20,7 @@ function PhaserGameRender({ gameFactory }: Props) {
     };
   }, [gameFactory]);
 
-  return (
-    <div id="phaser-container" className="h-full w-full overflow-hidden" />
-  );
+  return <div id='phaser-container' className='h-full w-full overflow-hidden' />;
 }
 
 export default PhaserGameRender;

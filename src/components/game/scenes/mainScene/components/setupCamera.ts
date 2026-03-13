@@ -1,5 +1,5 @@
-import Phaser from "phaser";
-import { DESIGN_HEIGHT } from "../../../../../utils/constants.ts";
+import Phaser from 'phaser';
+import { DESIGN_HEIGHT } from '@utils/constants.ts';
 
 export function setupWorldAndCamera(scene: Phaser.Scene, worldWidth: number): void {
   scene.physics.world.setBounds(0, 0, worldWidth, DESIGN_HEIGHT);
@@ -14,6 +14,6 @@ export function setupWorldAndCamera(scene: Phaser.Scene, worldWidth: number): vo
   scene.cameras.main.centerOn(worldWidth - viewportWorldWidth / 2, midY);
 
   scene.time.delayedCall(2000, () => {
-    scene.cameras.main.pan(viewportWorldWidth / 2, midY, 3000, "Sine.easeInOut");
+    scene.cameras.main.pan(viewportWorldWidth / 2, midY, 3000, 'Sine.easeInOut');
   });
 }
