@@ -1,16 +1,18 @@
 import Phaser from 'phaser';
-import { DESIGN_WIDTH } from '@utils/constants.ts';
-import createBoards from '@scenes/mainScene/components/createBoards.ts';
+import { BARRELS_START_X, BARRELS_AMOUNT, BARREL_WIDTH } from '@utils/constants.ts';
+import createBoards, { BOARD_W } from '@scenes/mainScene/components/createBoards.ts';
 import { setupWorldAndCamera } from '@scenes/mainScene/components/setupCamera.ts';
 import createBackground from '@scenes/mainScene/components/createBackground.ts';
 import createPlayer from '@scenes/mainScene/components/createPlayer.ts';
 import createChicken from '@scenes/mainScene/components/createChicken.ts';
 import setupInput from '@scenes/mainScene/components/setupInput.ts';
+import createBarrels from '@scenes/mainScene/components/createBarrels.ts';
 
 export class MainScene extends Phaser.Scene {
   private player!: Phaser.Physics.Arcade.Sprite;
   private chicken!: Phaser.GameObjects.Image;
   private blocks!: Phaser.Physics.Arcade.StaticGroup;
+  private barrels!: Phaser.Physics.Arcade.StaticGroup;
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
   private worldWidth!: number;
 
@@ -27,9 +29,7 @@ export class MainScene extends Phaser.Scene {
   }
 
   create(): void {
-    const blockWidth = 120;
-    const blockCount = Math.max(50, Math.ceil(DESIGN_WIDTH / blockWidth));
-    this.worldWidth = blockWidth * blockCount;
+    this.worldWidth = BARRELS_START_X + BARRELS_AMOUNT * BARREL_WIDTH + BOARD_W;
 
     setupWorldAndCamera(this, this.worldWidth);
     createBackground(this, this.worldWidth);
@@ -37,6 +37,7 @@ export class MainScene extends Phaser.Scene {
     this.player = createPlayer(this, this.blocks);
     this.chicken = createChicken(this, this.worldWidth);
     this.cursors = setupInput(this);
+    this.barrels = createBarrels(this);
   }
 
   update(): void {

@@ -1,17 +1,20 @@
-import Phaser from "phaser";
-import { DESIGN_HEIGHT } from "../../../../../utils/constants.ts";
+import Phaser from 'phaser';
+import { DESIGN_HEIGHT } from '@utils/constants.ts';
 
 export const BOARD_W = 217;
 export const BOARD_H = 77;
 
-export default function createBoards(scene: Phaser.Scene, worldWidth: number): Phaser.Physics.Arcade.StaticGroup {
+export default function createBoards(
+  scene: Phaser.Scene,
+  worldWidth: number
+): Phaser.Physics.Arcade.StaticGroup {
   const midY = DESIGN_HEIGHT / 2;
 
-  const startBoard = scene.add.image(0, midY, "jumpingBoard");
+  const startBoard = scene.add.image(0, midY, 'jumpingBoard');
   startBoard.setOrigin(0, 0.5);
   startBoard.setDisplaySize(BOARD_W, BOARD_H);
 
-  const endBoard = scene.add.image(worldWidth, midY, "jumpingBoard");
+  const endBoard = scene.add.image(worldWidth, midY, 'jumpingBoard');
   endBoard.setOrigin(1, 0.5);
   endBoard.setFlipX(true);
   endBoard.setDisplaySize(BOARD_W, BOARD_H);
